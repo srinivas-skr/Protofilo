@@ -216,6 +216,19 @@
             </p>
           </div>
           <div class="cert-grid">
+                        <!-- 9. AICTE Activity Certificate -->
+                        <div class="cert-card" onclick="openLightbox('/AICTE_ACTIVITY.png')">
+                          <div class="cert-image-wrapper">
+                            <img src="/AICTE_ACTIVITY.png" alt="AICTE Activity Certificate" class="cert-bg">
+                            <div class="cert-overlay">
+                              <svg class="cert-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <ellipse cx="12" cy="12" rx="10" ry="6"/>
+                              </svg>
+                              <h3>AICTE Activity</h3>
+                              <p>AICTE Certificate</p>
+                            </div>
+                          </div>
+                        </div>
             
             <!-- 1. DevOps & Cloud -->
             <div class="cert-card" onclick="openLightbox('/Devops.png')">
@@ -227,6 +240,21 @@
                   </svg>
                   <h3>DevOps & Cloud</h3>
                   <p>Google Cloud</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 1a. AWS NLP Certificate -->
+            <div class="cert-card" onclick="openLightbox('/aws_nlp_certificate.png')">
+              <div class="cert-image-wrapper">
+                <img src="/aws_nlp_certificate.png" alt="AWS NLP Certificate" class="cert-bg">
+                <div class="cert-overlay">
+                  <svg class="cert-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 2a10 10 0 0 1 0 20a10 10 0 0 1 0-20z"/>
+                  </svg>
+                  <h3>AWS NLP</h3>
+                  <p>AWS Academy Machine Learning for NLP</p>
                 </div>
               </div>
             </div>
@@ -308,6 +336,34 @@
               </div>
             </div>
 
+            <!-- 7. R Programming Certificate -->
+            <div class="cert-card" onclick="openLightbox('/r_programming_certificate.png')">
+              <div class="cert-image-wrapper">
+                <img src="/r_programming_certificate.png" alt="R Programming Certificate" class="cert-bg">
+                <div class="cert-overlay">
+                  <svg class="cert-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="4" y="4" width="16" height="16" rx="2"/>
+                  </svg>
+                  <h3>R Programming</h3>
+                  <p>Infosys Springboard</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 8. Web Dev Internship Certificate -->
+            <div class="cert-card" onclick="openLightbox('/web_dev_internship_certificate.png')">
+              <div class="cert-image-wrapper">
+                <img src="/web_dev_internship_certificate.png" alt="Web Dev Internship Certificate" class="cert-bg">
+                <div class="cert-overlay">
+                  <svg class="cert-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 2 22 22 22 12 2"/>
+                  </svg>
+                  <h3>Web Dev Internship</h3>
+                  <p>Skill Intern India</p>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -358,26 +414,45 @@
   <script type="module" src="/src/main.js"></script>
   
   <!-- JAVASCRIPT FOR LIGHTBOX -->
-  <script>
-    function openLightbox(imgSrc) {
+    <script>
+    function openLightbox(imgSrc, updateUrl = true) {
       const lightbox = document.getElementById('lightbox');
       const lightboxImg = document.getElementById('lightbox-img');
+
       lightboxImg.src = imgSrc;
       lightbox.classList.add('active');
       document.body.style.overflow = 'hidden';
+
+      // Put shareable URL in address bar
+      if (updateUrl) {
+        const file = imgSrc.startsWith('/') ? imgSrc.slice(1) : imgSrc;
+        const url = new URL(window.location.href);
+        url.searchParams.set('cert', file);
+        window.history.replaceState({}, '', url.toString());
+      }
     }
 
     function closeLightbox() {
       const lightbox = document.getElementById('lightbox');
       lightbox.classList.remove('active');
       document.body.style.overflow = 'auto';
+
+      // Remove ?cert=... from URL
+      const url = new URL(window.location.href);
+      url.searchParams.delete('cert');
+      window.history.replaceState({}, '', url.toString());
     }
-    
-    document.addEventListener('keydown', function(event) {
-      if (event.key === "Escape") {
-        closeLightbox();
-      }
+
+    // Auto-open lightbox if URL has ?cert=...
+    window.addEventListener('DOMContentLoaded', () => {
+      const url = new URL(window.location.href);
+      const cert = url.searchParams.get('cert');
+      if (cert) openLightbox('/' + cert, false);
     });
-  </script>
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeLightbox();
+    });
+    </script>
 </body>
 </html>
