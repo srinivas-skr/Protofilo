@@ -713,6 +713,15 @@ section {
   gap: 20px;
   justify-content: center;
   margin-top: 32px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+  .social-icons-small {
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+}
 }
 
 .social-icon {
@@ -835,6 +844,15 @@ section {
     opacity: 0;
     transition: var(--transition);
     pointer-events: none;
+    z-index: 2000;
+  }
+  .nav-menu a.nav-link,
+  .nav-menu a {
+    font-size: 18px;
+    padding: 12px 0;
+    display: block;
+    text-align: center;
+  }
   }
   
   .nav-menu.active {
