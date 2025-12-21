@@ -27,19 +27,35 @@
   text-decoration: none;
 }
 .github-link{
-  color: #ffffff;
-  opacity: 0.9;
+  color: #fff;
+  background: linear-gradient(135deg, #667eea 60%, #764ba2 100%);
+  border-radius: 10px;
+  padding: 6px 16px;
+  margin-right: 8px;
+  box-shadow: 0 2px 8px rgba(102,126,234,0.10);
+  transition: filter 0.18s, box-shadow 0.18s;
+  opacity: 0.95;
 }
 .github-link:hover{
   opacity: 1;
+  filter: brightness(1.08);
   text-decoration: underline;
+  box-shadow: 0 4px 16px rgba(102,126,234,0.18);
 }
 .live-link{
-  color: #20e3b2;
+  color: #fff;
+  background: linear-gradient(135deg, #20e3b2 60%, #29ff94 100%);
+  border-radius: 10px;
+  padding: 6px 16px;
+  box-shadow: 0 2px 8px rgba(32,227,178,0.10);
+  transition: filter 0.18s, box-shadow 0.18s;
+  opacity: 0.95;
 }
 .live-link:hover{
+  opacity: 1;
+  filter: brightness(1.08);
   text-decoration: underline;
-  filter: brightness(1.05);
+  box-shadow: 0 4px 16px rgba(32,227,178,0.18);
 }
 /* Ensure social icon images are not dimmed */
 .social-icon img{
