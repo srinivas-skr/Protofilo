@@ -1,3 +1,46 @@
+/* Education card icon and heading */
+.edu-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom: 6px;
+}
+.edu-ico{
+  width:42px;
+  height:42px;
+  border-radius: 14px;
+  display:grid;
+  place-items:center;
+  background: linear-gradient(135deg, rgba(102,126,234,0.95), rgba(118,75,162,0.95));
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 12px 28px rgba(102,126,234,0.18);
+  flex: 0 0 auto;
+}
+.edu-ico svg{
+  width:22px;
+  height:22px;
+}
+/* Project links color differentiation */
+.project-link{
+  font-weight: 800;
+  text-decoration: none;
+}
+.github-link{
+  color: #ffffff;
+  opacity: 0.9;
+}
+.github-link:hover{
+  opacity: 1;
+  text-decoration: underline;
+}
+.live-link{
+  color: #20e3b2;
+}
+.live-link:hover{
+  text-decoration: underline;
+  filter: brightness(1.05);
+}
 /* Ensure social icon images are not dimmed */
 .social-icon img{
   filter: none;
