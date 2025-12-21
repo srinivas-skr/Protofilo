@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srinivas K | Resume</title>
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #0b0d12; }
+        #pdf-container { width: 100%; height: 100vh; border: none; }
+        iframe { width: 100%; height: 100%; border: none; }
+    </style>
+</head>
+<body>
+    <div id="pdf-container"></div>
+    <script>
+        const pdfUrl = window.location.origin + '/resume_2025.pdf';
+        const container = document.getElementById('pdf-container');
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (isMobile) {
+            container.innerHTML = `<iframe src="https://docs.google.com/gview?url=${encodeURIComponent(pdfUrl)}&embedded=true"></iframe>`;
+        } else {
+            container.innerHTML = `<iframe src="${pdfUrl}" type="application/pdf"></iframe>`;
+        }
+        setTimeout(() => {
+            if (confirm("Do you want to download the resume?")) {
+                const link = document.createElement('a');
+                link.href = pdfUrl;
+                link.download = 'Srinivas_K_Resume.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            } else {
+                console.log("Download cancelled by user");
+            }
+        }, 2000);
+    </script>
+</body>
+</html>
