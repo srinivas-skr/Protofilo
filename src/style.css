@@ -1,3 +1,8 @@
+/* Ensure social icon images are not dimmed */
+.social-icon img{
+  filter: none;
+  opacity: 1;
+}
 /* Certificate SVG icon style */
 .cert-icon-svg{
   width: 28px;
