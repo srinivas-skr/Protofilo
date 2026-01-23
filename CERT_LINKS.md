@@ -34,6 +34,15 @@ Files and example links:
 - resume.pdf  
   `https://<YOUR_VERCEL_URL>/resume.pdf`
 
+- jpmorgan_forage_certificate.png  
+  `https://<YOUR_VERCEL_URL>/jpmorgan_forage_certificate.png`
+
+- sql.png  
+  `https://<YOUR_VERCEL_URL>/sql.png`
+
+- uniabroad.png  
+  `https://<YOUR_VERCEL_URL>/uniabroad.png`
+
 How to get your Vercel URL:
 
 1. After importing the repo to Vercel or after the GitHub Action finishes, open your project on vercel.com.
